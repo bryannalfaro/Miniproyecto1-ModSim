@@ -30,6 +30,10 @@ plt.ylabel('Probability')
 plt.title('Probability mass function')
 plt.show()
 
+print("Mass function values: \n")
+for i in range(len(pmf)):
+    print(values[i], pmf[i])
+
 #Task 3: Graph of CDF
 
 values = []
@@ -47,6 +51,10 @@ plt.ylabel('Probability')
 plt.title('Cumulative distribution function')
 plt.show()
 
+print("Cumulative distribution function values: \n")
+for i in range(len(cdf_arr)):
+    print(values[i], cdf_arr[i])
+
 #Ejercicio 2
 #lambda = 2 buses / 30 minutos
 
@@ -59,12 +67,15 @@ for i in range(101):
     pmf.append(((2**i)*(math.e)**(-2))/(math.factorial(i)))
     dict_pmf[i] = pmf[i]
 
-print("Maximo: ",max(dict_pmf, key=dict_pmf.get), "Value:",dict_pmf[max(dict_pmf, key=dict_pmf.get)])
 plt.plot(values, pmf, marker='o', color='green')
 plt.xlabel('Number of buses')
 plt.ylabel('Probability')
 plt.title('Probability mass function')
 plt.show()
+
+print("Mass function values: \n")
+for i in range(len(pmf)):
+    print(values[i], pmf[i])
 
 
 #Ejercicio 5
