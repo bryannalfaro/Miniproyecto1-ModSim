@@ -1,5 +1,7 @@
+from cmath import log
 import math
 import matplotlib.pyplot as plt
+import random as random
 #Miniproyecto 1
 #Modelacion y simulacion
 
@@ -13,8 +15,8 @@ https://pythonguides.com/python-find-max-value-in-a-dictionary/
 https://stackoverflow.com/questions/8023306/get-key-by-value-in-dictionary
 '''
 
-#Ejercicio 1
-#lambda = 7 huracanes / año
+# #Ejercicio 1
+# lambda = 7 huracanes / año
 
 #Task 2: Graph of PMF
 values = []
@@ -77,6 +79,56 @@ print("Mass function values: \n")
 for i in range(len(pmf)):
     print(values[i], pmf[i])
 
+#Ejercicio 3
+#Task 1
+values = []
+icdf = []
+inversecdf = []
+for n in range(1, 11):
+    r = random.random()
+    values.append(n)
+    icdf.append((-1)*((math.log(1-r))/(5)))
+
+plt.plot(values, icdf, marker='o', color='blue')
+plt.xlabel('Pacientes')
+plt.ylabel('Horas Intermedias')
+plt.title('Inverse CDF')
+plt.show()
+
+#Task 2
+values = []
+icdf = 0
+cdf_arr = []
+
+for n in range(1, 11):
+    r = random.random()
+    values.append(n)
+    icdf += (1 - ((math.e)**((-1)*(5*r))))
+    icdf = round(icdf, 4)
+    inversecdf.append(icdf)
+
+print(inversecdf)
+
+plt.scatter(values, inversecdf, marker='o', color='blue')
+plt.xlabel('Pacientes')
+plt.ylabel('Probability')
+plt.title('Inverse CDF')
+plt.show()
+
+#Task 3
+values = []
+icdf = []
+
+for n in range(1, 501):
+    r = random.random()
+    values.append(n)
+    icdf.append((-1)*((math.log(1-r))/(5)))
+
+plt.plot(values, icdf, color='blue')
+plt.xlabel('Pacientes')
+plt.ylabel('Horas Intermedias')
+plt.title('Inverse CDF')
+plt.show()
 
 #Ejercicio 5
 #Lambda = 2, 1, 0.5
